@@ -1,0 +1,23 @@
+info html 입니다.
+<table>
+    <tr>
+        <td>번호</td>
+        <td>아이디</td>
+        <td>패스워드</td>
+        <td>이름</td>
+        <td>성별</td>
+        <td>이미지</td>
+        <td>등록일</td>
+    </tr>
+    {% for item in userList %}
+    <tr>
+        <td>{{item.dataValues.id}}</td>
+        <td>{{item.dataValues.userid}}</td>
+        <td>{{item.dataValues.userpw}}</td>
+        <td>{{item.dataValues.username}}</td>
+        <td>{{item.dataValues.gender}}</td>
+        <td>{{item.dataValues.userimage}}</td>
+        <td>{{item.dataValues.userdt}}</td>
+    </tr>
+    {% endfor %}
+</table>
