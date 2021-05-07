@@ -1,1 +1,27 @@
 join html 입니다.
+<form action="/user/join_success" method="post">
+    <table>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="userid"></td>
+        </tr>
+        <tr>
+            <td>패스워드</td>
+            <td><input type="password" name="userpw"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <input type='radio' id="gender" name="gender" value="0">남자
+                <input type='radio' id="gender" name="gender" value="1" checked>여자
+            </td>
+        </tr>
+        
+    </table>
+
+    <input type='submit' value="로그인">
+</form>
