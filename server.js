@@ -5,12 +5,15 @@ const app = express();
 const router = require('./routers/index');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const session = require('express-session'); // npm install express-session
 
 app.set('view engine','html');
 nunjucks.configure('views',{
     express:app,
 })
+
+app.use(cors())
 
 /* 설명필요 */
 app.use(session({
