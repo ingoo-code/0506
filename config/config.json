@@ -8,10 +8,10 @@
     "dateString":"date"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "ettkuuldqtgzaj",
+    "password": "a2f0588a8304882a9b55a20d1c09d7499b1a8d2a23281c8c883f4b4f3c38a64a",
+    "database": "dbqjvtuibcp5iq",
+    "host": "ec2-54-166-167-192.compute-1.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {

@@ -1,12 +1,12 @@
 const express = require('express');
-const {sequelize} = require('./models'); // 객체
+/*const {sequelize} = require('./models');*/ // 객체
 const app = express();
 const router = require('./routers/index');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const session = require('express-session'); // npm install express-session
-const multer = require('multer');
+
 
 app.use('/user', express.static('uploads'));
 app.use(express.static('public'));
@@ -33,6 +33,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:false}));
 
 // seqeulize.sync -> new Promise 객체로 반환이됩니다.
+/*
 sequelize.sync({ force:false, })
 .then(()=>{
     console.log('접속 성공')
@@ -40,7 +41,7 @@ sequelize.sync({ force:false, })
 .catch(()=>{
     console.log('접속 실패');
 })
-
+*/
 // localhost:3000
 // localhost:3000/user
 
