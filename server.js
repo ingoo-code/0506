@@ -1,11 +1,9 @@
 const express = require('express');
 const {sequelize} = require('./models'); // 객체
-const {User} =require('./models');
 const app = express();
 const router = require('./routers/index');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
-const path = require('path');
 const cors = require('cors');
 const session = require('express-session'); // npm install express-session
 const multer = require('multer');
