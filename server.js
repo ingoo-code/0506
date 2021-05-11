@@ -19,7 +19,7 @@ nunjucks.configure('views',{
 app.use(cors())
 
 /* 설명필요 */
-/*
+
 app.use(session({
     secret:'aaa',
     resave:false,
@@ -30,7 +30,7 @@ app.use(session({
       }
   
 }))
-*/
+
 app.use(bodyParser.urlencoded({extended:false}));
 
 // seqeulize.sync -> new Promise 객체로 반환이됩니다.
