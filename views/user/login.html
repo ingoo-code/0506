@@ -1,21 +1,30 @@
 login html 입니다.
 
-<form action="/user/login_check" method="post">
+
+
+<form action="/user/login_check" method="post" id="loginFrm">
     <table>
         <tr>
             <td>
                 아이디
             </td>
             <td>
-                <input type="text" name="userid">
+                <input type="text" name="userid" id="userid">
             </td>
         </tr>
         <tr>
             <td>패스워드</td>
             <td>
-                <input type='password' name="userpw">
+                <input type='password' name="userpw" id="userpw">
             </td>
         </tr>
     </table>
     <input type='submit' value="로그인하기">
 </form>
+
+{% if flag == 'true' %}
+<script type="text/javascript">
+    alert('아이디와 패스워드가 일치하지 않습니다.');
+    document.getElementById("loginFrm").reset();
+</script>
+{% endif %}

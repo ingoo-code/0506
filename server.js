@@ -5,8 +5,13 @@ const app = express();
 const router = require('./routers/index');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
+const path = require('path');
 const cors = require('cors');
 const session = require('express-session'); // npm install express-session
+const multer = require('multer');
+
+app.use('/user', express.static('uploads'));
+app.use(express.static('public'));
 
 app.set('view engine','html');
 nunjucks.configure('views',{
@@ -40,6 +45,8 @@ sequelize.sync({ force:false, })
 
 // localhost:3000
 // localhost:3000/user
+
+
 
 app.use('/',router); // 비동기
 

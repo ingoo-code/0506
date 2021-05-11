@@ -1,37 +1,33 @@
 
 const {User} = require('../../models/index');
 
-let join = (req,res) => {
-    //res.send('join');
+let join = async (req,res) => {
+    //console.log(img);
     res.render('./user/join.html')
 }
 
-let login = (req,res) => {
-    res.render('./user/login.html')
+let login = (req,res,next) => {
+    let flag = req.query.flag;
+    res.render('./user/login.html',{flag});
 }
 
-let info = async (req,res) => {
+let info = async (req,res,next) => {
     //, 'userdt']
     let userlist = await User.findAll({});
-    console.log(userlist)
-    /*
     res.render('./user/info.html',{
         userList: userlist,
     })
-    */
-    res.json({
-        userlist,
-    })
 }
 
-let join_success = async (req,res) =>{
+let join_success = async (req,res,next) =>{
     let userid = req.body.userid;
     let userpw = req.body.userpw;
     let username = req.body.username;
     let gender = req.body.gender;
-    
+    let userimage = req.file === undefined ? '' : req.file.path;
+
     try{
-        let rst = await User.create({ userid, userpw, username, gender })
+        let rst = await User.create({ userid, userpw, username, gender, userimage})
     } catch (e) {
         console.log(e);
     }
@@ -41,17 +37,21 @@ let join_success = async (req,res) =>{
 let login_check = async (req,res) =>{
     let userid = req.body.userid;
     let userpw = req.body.userpw;
+    try{
+        let result = await User.findOne({
+            where:{ userid,userpw }
+        })
+        if(result.dataValues.userid == userid){
+            req.session.uid = userid;
+            req.session.isLogin = true;
 
-    let result = await User.findOne({
-        where:{ userid,userpw }
-    })
-
-    req.session.uid = userid;
-    req.session.isLogin = true;
-
-    req.session.save(()=>{
-        res.redirect('/');
-    })
+            req.session.save(()=>{
+                res.redirect('/');
+            })
+        }
+    } catch(e){
+        res.redirect('/user/login?flag=true');
+    }
 }
 
 let logout = (req,res)=>{
@@ -69,5 +69,5 @@ module.exports = {
     info:info,
     join_success:join_success,
     login_check:login_check,
-    logout
+    logout,
 }

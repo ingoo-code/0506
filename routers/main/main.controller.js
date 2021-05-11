@@ -1,4 +1,4 @@
-let main = (req,res)=>{
+let main = (req,res,next)=>{
     console.log(req.session);
     res.render('index.html',{
         userid:req.session.uid,

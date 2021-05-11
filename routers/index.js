@@ -9,8 +9,9 @@ const userRouter = require('./user/index');
 
 // localhost:3000
 // localhost:3000/user
+
+router.get('/',mainRouter);
 router.use('/user',userRouter);
-router.use('/',mainRouter);
 
 
 module.exports = router;

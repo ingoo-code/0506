@@ -1,5 +1,5 @@
 join html 입니다.
-<form action="/user/join_success" method="post">
+<form action="/user/join_success" method="post" enctype="multipart/form-data">
     <table>
         <tr>
             <td>아이디</td>
@@ -16,9 +16,13 @@ join html 입니다.
         <tr>
             <td>성별</td>
             <td>
-                <input type='radio' id="gender" name="gender" value="0">남자
-                <input type='radio' id="gender" name="gender" value="1" checked>여자
+                <input type='radio' name="gender" value="0">남자
+                <input type='radio' name="gender" value="1" checked>여자
             </td>
+        </tr>
+        <tr>
+            <td>이미지</td>
+            <td><input type="file" name="img" id="img" accept="image/png, image/jpeg"></td>
         </tr>
         
     </table>
