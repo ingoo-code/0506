@@ -6,7 +6,7 @@ const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const session = require('express-session'); // npm install express-session
-
+const PORT = process.env.PORT || 3000;
 
 app.use('/user', express.static('uploads'));
 app.use(express.static('public'));
@@ -50,6 +50,6 @@ sequelize.sync({ force:false, })
 
 app.use('/',router); // 비동기
 
-app.listen(5000,()=>{
-    console.log('server start port 3000');
+app.listen(PORT,()=>{
+    console.log(`server start port ${PORT}`);
 });
